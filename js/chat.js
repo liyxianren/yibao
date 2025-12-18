@@ -240,6 +240,9 @@ class ChatManager {
      * 格式化消息内容（支持 Markdown：标题、表格、列表等）
      */
     formatMessageContent(content) {
+        // 过滤 COZE 内部标记（如 <|FunctionCallEnd|> 等）
+        content = content.replace(/<\|[^|]+\|>/g, '');
+
         // 转义 HTML（但保留换行符用于后续处理）
         let formatted = content
             .replace(/&/g, '&amp;')
@@ -355,7 +358,9 @@ class ChatManager {
         // 第一行作为表头
         const headerCells = rows[0].split('|').filter(cell => cell.trim() !== '');
         headerCells.forEach(cell => {
-            html += `<th>${cell.trim()}</th>`;
+            // 还原单元格内的 <br> 标签
+            let cellContent = cell.trim().replace(/&lt;br&gt;/gi, '<br>');
+            html += `<th>${cellContent}</th>`;
         });
         html += '</tr></thead><tbody>';
 
@@ -364,7 +369,9 @@ class ChatManager {
             const cells = rows[i].split('|').filter(cell => cell.trim() !== '');
             html += '<tr>';
             cells.forEach(cell => {
-                html += `<td>${cell.trim()}</td>`;
+                // 还原单元格内的 <br> 标签
+                let cellContent = cell.trim().replace(/&lt;br&gt;/gi, '<br>');
+                html += `<td>${cellContent}</td>`;
             });
             html += '</tr>';
         }
