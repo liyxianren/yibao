@@ -249,7 +249,11 @@ class ChatManager {
         // 处理表格（必须在换行转换之前）
         formatted = this.parseMarkdownTable(formatted);
 
-        // 处理标题（必须在换行转换之前）
+        // 处理标题（必须在换行转换之前，从高级到低级处理避免误匹配）
+        // ###### 六级标题
+        formatted = formatted.replace(/^###### (.+)$/gm, '<h6 class="md-h6">$1</h6>');
+        // ##### 五级标题
+        formatted = formatted.replace(/^##### (.+)$/gm, '<h5 class="md-h5">$1</h5>');
         // #### 四级标题
         formatted = formatted.replace(/^#### (.+)$/gm, '<h4 class="md-h4">$1</h4>');
         // ### 三级标题
@@ -285,7 +289,7 @@ class ChatManager {
         formatted = formatted.replace(/\n/g, '<br>');
 
         // 清理多余的 <br>（标题和表格后不需要）
-        formatted = formatted.replace(/(<\/h[1-4]>)<br>/g, '$1');
+        formatted = formatted.replace(/(<\/h[1-6]>)<br>/g, '$1');
         formatted = formatted.replace(/(<\/table>)<br>/g, '$1');
         formatted = formatted.replace(/(<\/ul>)<br>/g, '$1');
         formatted = formatted.replace(/(<\/ol>)<br>/g, '$1');
