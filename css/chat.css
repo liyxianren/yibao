@@ -704,6 +704,17 @@
     background: var(--primary-50);
 }
 
+/* 表格容器 - 支持手机端横向滚动 */
+.message-bubble .md-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: var(--spacing-md) 0;
+}
+
+.message-bubble .md-table-wrapper .md-table {
+    margin: 0;
+}
+
 /* ================================
    欢迎消息特殊样式
    ================================ */

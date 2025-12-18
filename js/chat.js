@@ -377,7 +377,8 @@ class ChatManager {
         }
 
         html += '</tbody></table>';
-        return html;
+        // 用可滚动容器包裹表格，支持手机端横向滚动
+        return `<div class="md-table-wrapper">${html}</div>`;
     }
 
     /**
