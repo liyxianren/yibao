@@ -1,0 +1,614 @@
+/* ================================
+   智慧医保助手 - 响应式样式
+   温暖医疗风格 - 适配移动端和平板设备
+   ================================ */
+
+/* ================================
+   平板设备 (max-width: 1024px)
+   ================================ */
+@media screen and (max-width: 1024px) {
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+
+    .hero-stats {
+        gap: var(--spacing-lg);
+    }
+
+    .stat-item {
+        min-width: 100px;
+        padding: var(--spacing-sm);
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chat-container {
+        grid-template-columns: 240px 1fr;
+        height: 550px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .footer-links {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ================================
+   小平板/大手机 (max-width: 768px)
+   ================================ */
+@media screen and (max-width: 768px) {
+    :root {
+        --spacing-xl: 2rem;
+        --spacing-2xl: 3rem;
+    }
+
+    /* 导航栏 */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: var(--bg-primary);
+        flex-direction: column;
+        padding: 80px var(--spacing-lg) var(--spacing-lg);
+        gap: var(--spacing-sm);
+        transition: right var(--transition-normal);
+        border-left: 1px solid var(--border-light);
+        z-index: 999;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-link {
+        display: block;
+        padding: var(--spacing-sm);
+        font-size: 1.125rem;
+        border-radius: var(--radius-sm);
+    }
+
+    .nav-link:hover {
+        background: var(--primary-50);
+    }
+
+    .nav-toggle {
+        display: flex;
+        z-index: 1001;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* 导航遮罩 */
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 998;
+    }
+
+    .nav-overlay.active {
+        display: block;
+    }
+
+    /* Hero 区域 */
+    .hero {
+        padding-top: 100px;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: center;
+    }
+
+    .stat-item {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* 功能特点 */
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* 新闻区域 */
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* 对话区域 - 隐藏侧边栏 */
+    .chat-container {
+        grid-template-columns: 1fr;
+        min-height: 500px;
+        height: calc(100vh - 250px);  /* 自适应高度 */
+        max-height: 700px;
+        position: relative;
+    }
+
+    .chat-sidebar {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 280px;
+        height: 100%;
+        z-index: 10;
+        transition: left var(--transition-normal);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .chat-sidebar.active {
+        left: 0;
+    }
+
+    .sidebar-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+    }
+
+    .chat-main {
+        position: relative;
+    }
+
+    .message-content {
+        max-width: 85%;
+    }
+
+    /* 页脚 */
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        text-align: center;
+    }
+}
+
+/* ================================
+   手机设备 (max-width: 480px)
+   ================================ */
+@media screen and (max-width: 480px) {
+    :root {
+        --spacing-lg: 1.5rem;
+        --spacing-xl: 1.5rem;
+        --spacing-2xl: 2rem;
+    }
+
+    html {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    /* 导航 */
+    .nav-logo .logo-text {
+        font-size: 1rem;
+    }
+
+    .logo-icon {
+        font-size: 1.25rem;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: auto;
+        padding: 100px var(--spacing-sm) var(--spacing-xl);
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+    }
+
+    .hero-subtitle br {
+        display: none;
+    }
+
+    .stat-number {
+        font-size: 1.75rem;
+    }
+
+    .hero-scroll-hint {
+        display: none;
+    }
+
+    /* 装饰球缩小 */
+    .gradient-blob {
+        filter: blur(60px);
+        opacity: 0.3;
+    }
+
+    .blob-1 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .blob-2 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .blob-3 {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* 区块标题 */
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-desc {
+        font-size: 1rem;
+    }
+
+    /* 功能卡片 */
+    .feature-card {
+        padding: var(--spacing-md);
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .feature-icon svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* 新闻卡片 */
+    .news-card {
+        padding: var(--spacing-md);
+    }
+
+    /* 对话区域 */
+    .chat-container {
+        min-height: 450px;
+        height: calc(100vh - 200px);  /* 自适应高度 */
+        max-height: 600px;
+        border-radius: var(--radius-lg);
+    }
+
+    .chat-messages {
+        padding: var(--spacing-sm);
+    }
+
+    .message {
+        gap: var(--spacing-xs);
+    }
+
+    .message-avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    .message-content {
+        max-width: 90%;
+    }
+
+    .message-bubble {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.875rem;
+    }
+
+    .chat-input-area {
+        padding: var(--spacing-sm);
+    }
+
+    .input-container {
+        padding: var(--spacing-xs);
+    }
+
+    .chat-input {
+        font-size: 0.875rem;
+    }
+
+    .btn-send {
+        width: 36px;
+        height: 36px;
+    }
+
+    .btn-send svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* 页脚 */
+    .footer-links {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .footer-col {
+        text-align: center;
+    }
+
+    .footer-brand {
+        text-align: center;
+    }
+
+    .footer-logo {
+        justify-content: center;
+    }
+
+    .footer-desc {
+        max-width: none;
+    }
+}
+
+/* ================================
+   超小屏幕 (max-width: 360px)
+   ================================ */
+@media screen and (max-width: 360px) {
+    html {
+        font-size: 13px;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .chat-container {
+        min-height: 400px;
+        height: calc(100vh - 180px);  /* 自适应高度 */
+        max-height: 550px;
+    }
+
+    .message-content {
+        max-width: 95%;
+    }
+
+    .stat-item {
+        padding: var(--spacing-xs);
+    }
+}
+
+/* ================================
+   横屏模式优化
+   ================================ */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 80px var(--spacing-md) var(--spacing-lg);
+    }
+
+    .hero-stats {
+        flex-direction: row;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+    }
+
+    .hero-scroll-hint {
+        display: none;
+    }
+}
+
+/* ================================
+   浅色模式（系统偏好）
+   ================================ */
+@media (prefers-color-scheme: light) {
+    /* 已经是浅色主题，无需额外调整 */
+}
+
+/* ================================
+   减少动画（无障碍）
+   ================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .gradient-blob {
+        animation: none;
+    }
+
+    .hero-scroll-hint {
+        animation: none;
+    }
+
+    .typing-dot {
+        animation: none;
+    }
+}
+
+/* ================================
+   打印样式
+   ================================ */
+@media print {
+    .navbar,
+    .hero-scroll-hint,
+    .chat-section,
+    .news-controls,
+    .footer {
+        display: none;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 20px;
+        background: white;
+    }
+
+    .hero-background {
+        display: none;
+    }
+
+    .gradient-text {
+        -webkit-text-fill-color: initial;
+        background: none;
+        color: var(--primary);
+    }
+
+    .feature-card,
+    .news-card {
+        border: 1px solid #ddd;
+        box-shadow: none;
+    }
+}
+
+/* ================================
+   高对比度模式
+   ================================ */
+@media (prefers-contrast: high) {
+    :root {
+        --border-light: #94A3B8;
+        --border-medium: #64748B;
+        --text-secondary: #475569;
+        --text-muted: #64748B;
+    }
+
+    .feature-card,
+    .news-card,
+    .chat-container,
+    .card {
+        border-width: 2px;
+    }
+
+    .btn-primary {
+        border: 2px solid var(--primary-dark);
+    }
+
+    .message-bubble {
+        border-width: 2px;
+    }
+}
+
+/* ================================
+   大字体模式
+   ================================ */
+@media screen and (min-width: 1024px) {
+    /* 用户可能设置了系统大字体 */
+    @supports (font-size: clamp(1rem, 1vw, 1.5rem)) {
+        body {
+            font-size: clamp(1rem, 1vw + 0.5rem, 1.25rem);
+        }
+    }
+}
+
+/* ================================
+   触摸设备优化
+   ================================ */
+@media (hover: none) and (pointer: coarse) {
+    /* 触摸设备上增大点击区域 */
+    .nav-link {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .btn {
+        min-height: 48px;
+        padding: var(--spacing-sm) var(--spacing-lg);
+    }
+
+    .btn-send {
+        min-width: 48px;
+        min-height: 48px;
+    }
+
+    .chat-history-item {
+        padding: var(--spacing-md);
+    }
+
+    .quick-question-btn {
+        padding: 10px 16px;
+    }
+
+    /* 移除悬浮效果 */
+    .feature-card:hover,
+    .news-card:hover,
+    .card:hover {
+        transform: none;
+    }
+}
+
+/* ================================
+   安全区域（iPhone X 及更新设备）
+   ================================ */
+@supports (padding: env(safe-area-inset-bottom)) {
+    .chat-input-area {
+        padding-bottom: calc(var(--spacing-md) + env(safe-area-inset-bottom));
+    }
+
+    .footer {
+        padding-bottom: calc(var(--spacing-lg) + env(safe-area-inset-bottom));
+    }
+
+    .nav-menu {
+        padding-bottom: calc(var(--spacing-lg) + env(safe-area-inset-bottom));
+    }
+}

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧医保助手 - AI 异地医保咨询平台</title>
+    <meta name="description" content="智能解答异地医保报销问题，让医保使用更简单">
+    <!-- 禁止浏览器请求favicon.ico -->
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 页面加载动画 -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p class="loader-text">正在加载智慧医保助手...</p>
+        </div>
+    </div>
+
+    <!-- 鼠标跟随光效 -->
+    <div class="mouse-glow" id="mouseGlow"></div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🏥</span>
+                <span class="logo-text">智慧医保助手</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">首页</a></li>
+                <li><a href="#features" class="nav-link">功能介绍</a></li>
+                <li><a href="#news" class="nav-link">医保资讯</a></li>
+                <li><a href="#chat" class="nav-link">AI 咨询</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero 区域 -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="gradient-blob blob-1"></div>
+            <div class="gradient-blob blob-2"></div>
+            <div class="gradient-blob blob-3"></div>
+            <!-- 粒子效果 -->
+            <div class="particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+            <!-- 浮动装饰图标 -->
+            <div class="floating-icons">
+                <div class="floating-icon icon-1">💊</div>
+                <div class="floating-icon icon-2">🩺</div>
+                <div class="floating-icon icon-3">💉</div>
+                <div class="floating-icon icon-4">🏥</div>
+                <div class="floating-icon icon-5">❤️</div>
+                <div class="floating-icon icon-6">📋</div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line slide-in-left">异地医保</span>
+                <span class="title-line gradient-text text-gradient-animate">智能咨询助手</span>
+            </h1>
+            <p class="hero-subtitle">
+                不再为异地就医报销烦恼，AI 智能解答您的每一个医保问题<br>
+                覆盖全国各省市医保政策，快速、准确、专业
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="31">0</span>
+                    <span class="stat-label">覆盖省份</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="100000">0</span>
+                    <span class="stat-label">服务用户</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="98">0</span>
+                    <span class="stat-label">准确率%</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#chat" class="btn btn-primary">
+                    <span>开始咨询</span>
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#features" class="btn btn-secondary">了解更多</a>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">
+            <span>向下滚动</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- 功能特点区 -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">核心优势</span>
+                <h2 class="section-title">为什么选择我们？</h2>
+                <p class="section-desc">基于先进的 AI 技术，为您提供专业、高效的医保咨询服务</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" style="animation-delay: 0s;">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">极速响应</h3>
+                    <p class="feature-desc">平均响应时间小于2秒，比传统搜索更快速，超越同类产品</p>
+                </div>
+                <div class="feature-card" style="animation-delay: 0.1s;">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">权威准确</h3>
+                    <p class="feature-desc">基于官方政策文件训练，确保回答准确可靠，98%以上准确率</p>
+                </div>
+                <div class="feature-card" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">智能对话</h3>
+                    <p class="feature-desc">支持多轮对话，理解上下文语境，像真人专家一样解答问题</p>
+                </div>
+                <div class="feature-card" style="animation-delay: 0.3s;">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">全国覆盖</h3>
+                    <p class="feature-desc">覆盖31个省市自治区，无论您在哪里，都能获得本地化指导</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新闻推送区域 -->
+    <section id="news" class="news-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">最新资讯</span>
+                <h2 class="section-title">医保政策动态</h2>
+                <p class="section-desc">AI 实时为您汇总最新医保政策变化和实用资讯</p>
+            </div>
+            <div class="news-controls">
+                <button class="btn btn-refresh" id="refreshNews">
+                    <svg class="refresh-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 4v6h-6M1 20v-6h6"/>
+                        <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+                    </svg>
+                    <span>刷新资讯</span>
+                </button>
+            </div>
+            <div class="news-grid" id="newsGrid">
+                <!-- 新闻卡片将通过 JS 动态加载 -->
+                <div class="news-loading">
+                    <div class="loading-spinner"><span></span></div>
+                    <p>正在获取最新资讯...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI 对话区域 -->
+    <section id="chat" class="chat-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">AI 助手</span>
+                <h2 class="section-title">医保智能咨询</h2>
+                <p class="section-desc">有任何异地医保问题？直接问我吧！</p>
+            </div>
+            <div class="chat-container">
+                <!-- 聊天历史侧边栏 -->
+                <div class="chat-sidebar">
+                    <div class="sidebar-header">
+                        <h3>对话历史</h3>
+                        <button class="btn-new-chat" id="newChatBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                            新对话
+                        </button>
+                    </div>
+                    <div class="chat-history-list" id="chatHistoryList">
+                        <!-- 历史记录将通过 JS 动态加载 -->
+                    </div>
+                </div>
+                <!-- 主对话区域 -->
+                <div class="chat-main">
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- 欢迎消息 -->
+                        <div class="message message-assistant">
+                            <div class="message-avatar">
+                                <span>🤖</span>
+                            </div>
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    <p>您好！我是智慧医保助手，专注于解答异地医保相关问题。</p>
+                                    <p>您可以问我：</p>
+                                    <ul>
+                                        <li>如何办理异地就医备案？</li>
+                                        <li>深圳医保在上海怎么使用？</li>
+                                        <li>异地就医报销比例是多少？</li>
+                                        <li>急诊就医如何报销？</li>
+                                    </ul>
+                                    <p>请问有什么可以帮您的？</p>
+                                </div>
+                                <span class="message-time">刚刚</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 输入区域 -->
+                    <div class="chat-input-area">
+                        <div class="input-container">
+                            <textarea
+                                id="chatInput"
+                                class="chat-input"
+                                placeholder="输入您的医保问题，按 Enter 发送..."
+                                rows="1"
+                            ></textarea>
+                            <button class="btn-send" id="sendBtn" disabled>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="input-hint">提示：回答基于 AI 生成，重要事项请以官方政策为准</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🏥</span>
+                        <span class="logo-text">智慧医保助手</span>
+                    </div>
+                    <p class="footer-desc">让异地医保不再复杂，AI 智能助您轻松办理</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>快速链接</h4>
+                        <ul>
+                            <li><a href="#home">首页</a></li>
+                            <li><a href="#features">功能介绍</a></li>
+                            <li><a href="#news">医保资讯</a></li>
+                            <li><a href="#chat">AI 咨询</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>常见问题</h4>
+                        <ul>
+                            <li><a href="#chat">异地就医备案</a></li>
+                            <li><a href="#chat">报销流程</a></li>
+                            <li><a href="#chat">医保转移</a></li>
+                            <li><a href="#chat">政策解读</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>关于我们</h4>
+                        <ul>
+                            <li><a href="#">服务介绍</a></li>
+                            <li><a href="#">使用指南</a></li>
+                            <li><a href="#">隐私政策</a></li>
+                            <li><a href="#">联系我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 智慧医保助手. All Rights Reserved.</p>
+                <p class="footer-tech">Powered by COZE AI</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/api.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/news.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

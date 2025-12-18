@@ -1,0 +1,13 @@
+{
+  "start_date": "2025-10-08",
+  "initial_visits": 520,
+  "initial_api_calls": 1231,
+  "visits": 3,
+  "api_calls": 1,
+  "daily": {
+    "2025-12-17": {
+      "visits": 3,
+      "api_calls": 1
+    }
+  }
+}
